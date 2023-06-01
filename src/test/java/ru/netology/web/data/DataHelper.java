@@ -3,42 +3,44 @@ package ru.netology.web.data;
 import lombok.Value;
 
 public class DataHelper {
-  private DataHelper() {}
+    private DataHelper() {
+    }
 
-  @Value
-  public static class AuthInfo {
-    private String login;
-    private String password;
-  }
+    public static AuthInfo getValidAuthInfo() {
 
-  public static AuthInfo getValidAuthInfo() {
+        return new AuthInfo("vasya", "qwerty123");
+    }
 
-    return new AuthInfo("vasya", "qwerty123");
-  }
+    public static VerificationCode getValidVerificationCodeFor() {
 
-  @Value
-  public static class VerificationCode {
-    private String code;
-  }
+        return new VerificationCode("12345");
+    }
 
-  public static VerificationCode getValidVerificationCodeFor() {
+    public static String firstCardNumber() {
 
-    return new VerificationCode("12345");
-  }
+        String number = "5559 0000 0000 0001";
+        return number;
+    }
 
-  public static String firstCardNumber() {
+    public static String secondCardNumber() {
 
-    String number = "5559 0000 0000 0001";
-    return number;
-  }
+        String number = "5559 0000 0000 0002";
+        return number;
+    }
 
-  public static String secondCardNumber() {
+    public static String invalidCardNumber() {
+        String number = "1223 4444 5555 1234";
+        return number;
+    }
 
-    String number = "5559 0000 0000 0002";
-    return number;
-  }
-  public static String invalidCardNumber() {
-    String number = "1223 4444 5555 1234";
-    return number;
-  }
+    @Value
+    public static class AuthInfo {
+        private String login;
+        private String password;
+    }
+
+    @Value
+    public static class VerificationCode {
+        private String code;
+    }
 }

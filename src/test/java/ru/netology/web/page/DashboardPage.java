@@ -24,20 +24,24 @@ public class DashboardPage {
         val value = text.substring(start + balanceStart.length(), finish);
         return Integer.parseInt(value);
     }
+
     public int getFirstCardBalance() {
         val text = cards.first().text();
         int balance = extractBalance(text);
         return balance;
     }
+
     public int getSecondCardBalance() {
         val text = cards.get(1).text();
         int balance = extractBalance(text);
         return balance;
     }
+
     public TransferPage depositFirstCard() {
         $$("[data-test-id=action-deposit]").get(0).click();
         return new TransferPage();
     }
+
     public TransferPage depositSecondCard() {
         $$("[data-test-id=action-deposit]").get(1).click();
         return new TransferPage();
